@@ -1,0 +1,6 @@
+@kvFileY.Api_HostAddress = http://localhost:5170
+
+GET {{kvFileY.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
