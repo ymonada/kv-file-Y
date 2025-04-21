@@ -1,0 +1,69 @@
+
+# .NET Core / ASP.NET Core
+## Ignore Visual Studio temporary files, build results, and user-specific files
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+*.csproj.user
+*.DotSettings.user
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rch/
+[Bb]uild/
+[Bb]in/
+[Oo]bj/
+
+# Dependency directories
+packages/
+*.nupkg
+*.snupkg
+
+# Visual Studio / JetBrains IDE
+.idea/
+*.sln.iml
+.vscode/
+*.vs/
+
+# User-specific files
+*.rsuser
+*.pdb
+*.aps
+*.VC.db
+*.VC.VC.opendb
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+
+# Entity Framework migrations (якщо не хочете включати їх у репозиторій)
+Migrations/
+
+# Logs and runtime files
+*.log
+logs/
+*.bak
+
+# Environment-specific configuration
+appsettings.Development.json
+appsettings.Production.json
+
+# Test results
+TestResults/
+*.trx
+*.xml
+
+# Coverage reports
+*.coverage
+*.coveragexml
+
+# Miscellaneous
+Thumbs.db
+.DS_Store
