@@ -33,6 +33,42 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "kvFileY.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "kvFileY.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/kvFileY.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kvFileY.Application.dll": {}
+        }
+      },
+      "kvFileY.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/kvFileY.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kvFileY.Domain.dll": {}
+        }
+      },
+      "kvFileY.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "kvFileY.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/kvFileY.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kvFileY.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -67,11 +103,28 @@
         "microsoft.openapi.1.6.17.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "kvFileY.Application/1.0.0": {
+      "type": "project",
+      "path": "../kvFileY.Application/kvFileY.Application.csproj",
+      "msbuildProject": "../kvFileY.Application/kvFileY.Application.csproj"
+    },
+    "kvFileY.Domain/1.0.0": {
+      "type": "project",
+      "path": "../kvFileY.Domain/kvFileY.Domain.csproj",
+      "msbuildProject": "../kvFileY.Domain/kvFileY.Domain.csproj"
+    },
+    "kvFileY.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../kvFileY.Infrastructure/kvFileY.Infrastructure.csproj",
+      "msbuildProject": "../kvFileY.Infrastructure/kvFileY.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Microsoft.AspNetCore.OpenApi >= 9.0.3"
+      "Microsoft.AspNetCore.OpenApi >= 9.0.3",
+      "kvFileY.Application >= 1.0.0",
+      "kvFileY.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -98,7 +151,14 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj": {
+              "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj"
+            },
+            "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj": {
+              "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

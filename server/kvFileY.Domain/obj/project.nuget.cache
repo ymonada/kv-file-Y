@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "d1mPpiLAcbE=",
+  "success": true,
+  "projectFilePath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/zhenya/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.3/microsoft.aspnetcore.app.ref.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
