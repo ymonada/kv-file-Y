@@ -25,14 +25,7 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {
-              "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj": {
-                "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj"
-              },
-              "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj": {
-                "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -51,9 +44,31 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
             }
           },
           "imports": [
@@ -77,209 +92,6 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj",
-        "projectName": "kvFileY.Application",
-        "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/kvFileY.Application.csproj",
-        "packagesPath": "/home/zhenya/.nuget/packages/",
-        "outputPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Application/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/zhenya/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net9.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
-            "projectReferences": {
-              "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj": {
-                "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
-      },
-      "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.3, 9.0.3]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj",
-        "projectName": "kvFileY.Domain",
-        "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj",
-        "packagesPath": "/home/zhenya/.nuget/packages/",
-        "outputPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/zhenya/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net9.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
-      },
-      "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.3, 9.0.3]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj",
-        "projectName": "kvFileY.Infrastructure",
-        "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/kvFileY.Infrastructure.csproj",
-        "packagesPath": "/home/zhenya/.nuget/packages/",
-        "outputPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Infrastructure/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/zhenya/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net9.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
-            "projectReferences": {
-              "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj": {
-                "projectPath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Domain/kvFileY.Domain.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
-      },
-      "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.3, 9.0.3]"
-            }
-          ],
-          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
