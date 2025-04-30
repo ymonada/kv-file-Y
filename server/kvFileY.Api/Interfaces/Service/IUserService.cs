@@ -4,7 +4,7 @@ using kvFileY.Domain.Entities;
 
 namespace kvFileY.Api.Interfaces.Service;
 
-interface IUserService
+public interface IUserService
 {
     Task<ServiceResult<User>> GetUserAsync(int userId, CancellationToken ct = default);
 

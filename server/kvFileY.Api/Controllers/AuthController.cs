@@ -17,14 +17,16 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
     [HttpPost("/auth/register")]
-    public async Task RegisterUserAsync(UserCreateDto user, CancellationToken ct =  default)
+    public async Task<IActionResult> RegisterUserAsync(UserCreateDto user, CancellationToken ct =  default)
     {
-        await _authService.RegisterUserAsync(user, ct);
+        var res = await _authService.RegisterUserAsync(user, ct);
+        return Ok(res.Message);
     }
-    [HttpGet("/auth/login")]
-    public async Task LoginUserAsync(UserLoginDto user, CancellationToken ct = default)
+    [HttpPost("/auth/login")]
+    public async Task<IActionResult> LoginUserAsync(UserLoginDto user, CancellationToken ct = default)
     {
-        await _authService.LoginUserAsync(user, ct);
+        var res = await _authService.LoginUserAsync(user, ct);
+        return Ok(res.Message);
     }
     [HttpGet("/auth/cool")]
     public Task<IActionResult> Private()

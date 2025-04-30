@@ -1,6 +1,15 @@
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
+
+<script setup lang="ts">
+// No additional setup needed
+</script>
+
+<style>
+.min-h-screen {
+  min-height: 100vh;
+}
+</style>

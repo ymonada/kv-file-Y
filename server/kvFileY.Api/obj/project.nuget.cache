@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5v5+n9a25yk=",
+  "dgSpecHash": "L/ipnfajAXA=",
   "success": true,
   "projectFilePath": "/home/zhenya/dotnet/kv-file-Y/server/kvFileY.Api/kvFileY.Api.csproj",
   "expectedPackageFiles": [
@@ -53,7 +53,7 @@
     "/home/zhenya/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/zhenya/.nuget/packages/system.text.json/9.0.4/system.text.json.9.0.4.nupkg.sha512",
     "/home/zhenya/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/home/zhenya/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.3/microsoft.aspnetcore.app.ref.9.0.3.nupkg.sha512"
+    "/home/zhenya/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.4/microsoft.aspnetcore.app.ref.9.0.4.nupkg.sha512"
   ],
   "logs": []
 }

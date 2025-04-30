@@ -17,8 +17,9 @@ public class UserService : IUserService
     public async Task<ServiceResult<User>> GetUserAsync(int  userId,  CancellationToken ct = default)
     {
        var res = await _userRepository.GetByIdAsync(userId, ct);
-       return res is null ? new ServiceResult<User>(true, "User", res) :
-           new ServiceResult<User>(false, "Not found User");
+       return res is null
+           ? new ServiceResult<User>(false, "Not found User")
+           : new ServiceResult<User>(true, "User", res);
     }
     public async Task<ServiceResult<List<User>>> GetUserPageAsync(int page, int pageSize,  CancellationToken ct = default)
     {

@@ -19,6 +19,16 @@ builder.Services.AddAuthorization();
 builder.Services.AddCors();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowNuxt", builder =>
+    {
+        builder.WithOrigins("https://localhost:3000")
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials();
+    });
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -28,7 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 
 }
-
+app.UseCors("AllowNuxt");
 app.UseHttpsRedirection();
 app.MapControllers();
 app.UseAuthentication();
