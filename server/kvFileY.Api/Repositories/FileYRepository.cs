@@ -21,7 +21,7 @@ public class FileYRepository : IFileYRepository
         int pageSize = 15,
         string? searchTerm = null,
         string? sortBy = null,
-        string? sortOrder = "asc", 
+        string? sortOrder = "asc",
         CancellationToken ct = default)
     {
         var query = _context.Files
@@ -32,21 +32,19 @@ public class FileYRepository : IFileYRepository
         if (!string.IsNullOrWhiteSpace(searchTerm))
         {
             var search = searchTerm.ToLower();
-            query = query.Where(f => 
+            query = query.Where(f =>
                 f.FileName.ToLower().Contains(search));
         }
 
-        // Динамічне сортування (як у GetByFilter)
         if (!string.IsNullOrWhiteSpace(sortBy))
         {
             var selector = GetSortSelector(sortBy);
-            query = sortOrder?.ToLower() == "desc" 
-                ? query.OrderByDescending(selector) 
+            query = sortOrder?.ToLower() == "desc"
+                ? query.OrderByDescending(selector)
                 : query.OrderBy(selector);
         }
         else
         {
-            // Сортування за замовчуванням, якщо не вказано
             query = query.OrderBy(f => f.Id);
         }
 
@@ -69,7 +67,7 @@ public class FileYRepository : IFileYRepository
     {
         return await _context.Files
             .AsNoTracking()
-            .FirstOrDefaultAsync(x=>x
+            .FirstOrDefaultAsync(x => x
                 .FileName.ToLower()
                 .Contains(storedName.ToLower()), cancellationToken: ct);
     }
@@ -79,7 +77,7 @@ public class FileYRepository : IFileYRepository
         return await _context.Files.AnyAsync(x => x.Id == id, ct);
     }
 
-    public async  Task<bool> IsOwnerAsync(int fileId, int userId, CancellationToken ct = default)
+    public async Task<bool> IsOwnerAsync(int fileId, int userId, CancellationToken ct = default)
     {
         return await _context.Files
             .AsNoTracking()
@@ -104,13 +102,18 @@ public class FileYRepository : IFileYRepository
         return updatedRows > 0;
     }
 
-    public async  Task<FileY> CreateAsync(FileY file, CancellationToken ct = default)
+    public async Task<FileY> CreateAsync(FileY file, CancellationToken ct = default)
     {
-       await _context.Files.AddAsync(file, ct);
-       await _context.SaveChangesAsync(ct);
-       return file;
+        await _context.Files.AddAsync(file, ct);
+        await _context.SaveChangesAsync(ct);
+        return file;
     }
-
+    public async Task<List<FileY>> CreateRangeAsync(List<FileY> files, CancellationToken ct = default)
+    {
+        await _context.Files.AddRangeAsync(files, ct);
+        await _context.SaveChangesAsync(ct);
+        return files;
+    }
     public async Task<bool> DeleteAsync(int id, CancellationToken ct = default)
     {
         try
@@ -125,10 +128,26 @@ public class FileYRepository : IFileYRepository
         {
             _logger.LogError(ex, $"Помилка при видаленні файлу {id}");
             return false;
-        } 
-    } 
+        }
+    }
+    ///DELETE
+    public async Task<bool> DeleteAllAsync(CancellationToken ct = default)
+    {
+        try
+        {
+            var affectedRows = await _context.Files
+                .Where(u => u.Id > 0)
+                .ExecuteDeleteAsync();
 
-    public async  Task<int> GetFileCountAsync(int userId, CancellationToken ct = default)
+            return affectedRows > 0; // Повертає true, якщо щось було видалено
+        }
+        catch (DbUpdateException ex)
+        {
+            return false;
+        }
+    }
+
+    public async Task<int> GetFileCountAsync(int userId, CancellationToken ct = default)
     {
         return await _context.Files.AsNoTracking().Where(f => f.UserId == userId).CountAsync(ct);
     }
@@ -143,5 +162,5 @@ public class FileYRepository : IFileYRepository
             _ => f => f.Id // Сортування за замовчуванням
         };
     }
-   
+
 }

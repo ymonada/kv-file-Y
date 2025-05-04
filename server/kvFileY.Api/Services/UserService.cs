@@ -31,12 +31,11 @@ public class UserService : IUserService
         var res = await _userRepository.CreateAsync(userCreate);
         return new ServiceResult<User>(true, "User Create",res);
     }
-    public async Task<ServiceResult<User>> UpdateUserAsync(UserCreateDto userCreate, CancellationToken ct = default)
+    public async Task<ServiceResult<User>> UpdateUserAsync(UserUpdateDto userCreate, CancellationToken ct = default)
     {
         var newUser = new User
         {
             Email = userCreate.Email,
-            PasswordHash = CryptService.HashPassword(userCreate.Password),
             UserName = userCreate.UserName
         };
         var res = await _userRepository.CreateAsync(newUser, ct);

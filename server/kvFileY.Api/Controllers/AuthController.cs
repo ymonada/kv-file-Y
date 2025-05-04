@@ -20,20 +20,25 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> RegisterUserAsync(UserCreateDto user, CancellationToken ct =  default)
     {
         var res = await _authService.RegisterUserAsync(user, ct);
-        return Ok(res.Message);
+        return res.IsSuccess ?  Ok(res.Message) : BadRequest(res.Message);
     }
     [HttpPost("/auth/login")]
     public async Task<IActionResult> LoginUserAsync(UserLoginDto user, CancellationToken ct = default)
     {
         var res = await _authService.LoginUserAsync(user, ct);
-        return Ok(res.Message);
+        return res.IsSuccess ?  Ok(res.Message) : BadRequest(res.Message);
     }
-    [HttpGet("/auth/cool")]
-    public Task<IActionResult> Private()
+    [HttpGet("/auth/check")]
+    public Task<IActionResult> CheckAuth()
     {
-        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
-        if (userId == 0)
-            return Task.FromResult<IActionResult>(NotFound("No authenticated user."));
-        return Task.FromResult<IActionResult>(Ok(userId));
+        if (GetUserId == 0)
+             return Task.FromResult<IActionResult>(Ok(false));
+        return Task.FromResult<IActionResult>(Ok(true));
     }
+    [HttpPost("/auth/logout")]
+    public async Task LogoutUserAsync(CancellationToken ct = default)
+    {
+        await _authService.LogoutUserAsync(ct);
+    }
+    private int GetUserId => int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
 }

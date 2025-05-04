@@ -5,8 +5,7 @@ namespace kvFileY.Api.Mappers;
 
 public static class UserMapper
 {
-    public static UserDto ToDto(User user)=> 
-        new UserDto(user.Id, user.UserName, user.Email, user.PasswordHash, user.Files);
-    
-    
+    public static UserResponseDto ToDto(User user) =>
+        new UserResponseDto(user.Id, user.UserName, user.Email);
+
 }

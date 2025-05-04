@@ -15,6 +15,8 @@ public interface IFileYRepository
         CancellationToken ct = default);
     Task<FileY?> GetByIdAsync(int id, CancellationToken ct = default);
     Task<FileY?> GetByStoredNameAsync(string storedName, CancellationToken ct = default);
+
+    Task<List<FileY>> CreateRangeAsync(List<FileY> files, CancellationToken ct = default);
     // Перевірки
     Task<bool> ExistsAsync(int id, CancellationToken ct = default);
     Task<bool> IsOwnerAsync(int fileId, int userId, CancellationToken ct = default);
@@ -23,4 +25,6 @@ public interface IFileYRepository
     Task<bool> DeleteAsync(int id, CancellationToken ct = default);
     // Додаткові операції
     Task<int> GetFileCountAsync(int userId, CancellationToken ct = default);
+
+    Task<bool> DeleteAllAsync(CancellationToken ct = default);
 }

@@ -12,7 +12,7 @@ public interface IUserService
 
     Task<ServiceResult<User>> CreateUserAsync(User userCreate);
 
-    Task<ServiceResult<User>> UpdateUserAsync(UserCreateDto userCreate, CancellationToken ct = default);
+    Task<ServiceResult<User>> UpdateUserAsync(UserUpdateDto userCreate, CancellationToken ct = default);
 
     Task<ServiceResult<bool>> DeleteUserAsync(int userId, CancellationToken ct = default);
 

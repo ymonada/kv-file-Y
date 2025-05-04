@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kvFileY.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad36704dd1d12928aca029d40d8b26327cd2ba4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf2d6f50c579b5f47a1c37f605e623a802dfa010")]
 [assembly: System.Reflection.AssemblyProductAttribute("kvFileY.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kvFileY.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
