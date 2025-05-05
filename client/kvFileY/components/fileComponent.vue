@@ -39,23 +39,27 @@ const downloadFile = async () => {
 
 </script>
 <template>
-  <div class="flex justify-center items-center bg-white shadow-md rounded-md p-1 m-1 border-2 borger-gray-700">
-    <div class="flex flex-col justify-center items-center">
-      <div class="w-32 h-32 flex items-center justify-center p-1 ">
+  <div class="w-auto flex justify-center items-center bg-white shadow-md rounded-md p-2 m-2 border-2 border-gray-300">
+    <div class="flex flex-col justify-center items-center w-full">
+      <div class="w-28 h-28 flex items-center justify-center p-1">
         <div v-if="isImage()" class="w-full h-full flex items-center justify-center">
-          <img :src="fileUrl" alt="File" class="w-full h-full object-cover rounded-lg border-2 border-gray-100 shadow-md" />
+          <img :src="fileUrl" alt="File" class="w-full h-full object-cover rounded-lg border border-gray-200 shadow" />
         </div>
         <div v-else class="text-4xl">
           {{ getFileIcon(file.contentType) }}
         </div>
       </div>
-      <div class="flex flex-row justify-center items-center bg-gray-200 rounded-md w-auto">
-        <h3 class="text-lg bg-gray-100 rounded-md p-1 m-1 w-auto">{{ file.fileName }}</h3>
-        <button @click=showInfo class="p-2 hover:bg-gray-100 rounded-full">
-          <img src="/info.svg" alt="Copy" class="w-6 h-6" />
+
+      <!-- Назва файлу + кнопки -->
+      <div class="bg-gray-200 rounded-md flex  items-center w-full px-2 py-1 mt-2">
+        <span class="truncate flex-grow items-center text-sm sm:text-base" :title="file.fileName">
+          {{ file.fileName }}
+        </span>
+        <button @click="showInfo" class="p-1 hover:bg-gray-100 rounded-full">
+          <img src="/info.svg" alt="Info" class="w-5 h-5" />
         </button>
-        <button @click=downloadFile class="p-2 hover:bg-gray-100 rounded-full">
-          <img src="/download.svg" alt="Download" class="w-6 h-6" />
+        <button @click="downloadFile" class="p-1 hover:bg-gray-100 rounded-full">
+          <img src="/download.svg" alt="Download" class="w-5 h-5" />
         </button>
       </div>
     </div>

@@ -2,15 +2,19 @@ import { API_CONFIG, getApiUrl } from '~/config/api'
 import type { FileYDto } from '~/types/fileYDto'
 import type { ApiResponse } from '~/types/apiRespose'
 
-export async function fetchFiles(page: number = 1, pageSize: number = 10, searchTerm?: string):Promise<ApiResponse<FileYDto[]>> {
+export async function fetchFiles(page: number = 1
+  , pageSize: number = 10
+  , searchTerm?: string
+  , sortBy:string = 'uploadedAt'
+  , sortOrder: string = 'asc' ):Promise<ApiResponse<FileYDto[]>> {
     try {
       const response = await $fetch<FileYDto[]>(getApiUrl(API_CONFIG.ENDPOINTS.FILES.PAGE), {
         query: {
           page,
           pageSize,
           searchTerm,
-          sortBy: 'uploadedAt',
-          sortOrder: 'desc'
+          sortBy,
+          sortOrder
         },
         credentials: 'include',
         mode: 'cors',
