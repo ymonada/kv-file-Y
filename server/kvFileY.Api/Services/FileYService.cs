@@ -48,6 +48,13 @@ public class FileYService : IFileYService
         var res = await _fileRepository.GetPageAsync(userId, page, pageSize, searchTerm, sortBy, sortOrder, ct);
         return new ServiceResult<List<FileY>>(true, "files", res);
     }
+
+    public async Task<ServiceResult<long>> GetFilesCount(int userId, CancellationToken ct = default)
+    {
+        var res = await _fileRepository.GetFileCountAsync(userId, ct);
+        return new ServiceResult<long>(true, "Files", res);
+    }
+
     public async Task<ServiceResult<List<FileY>>> LoadFileArrayAsync(int userId, List<IFormFile> files, CancellationToken ct = default)
     {
         string basePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "files");

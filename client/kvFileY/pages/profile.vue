@@ -49,9 +49,3 @@ onMounted(async () => {
     <p>Email: {{ profile.email }}</p>
   </div>
 </template>
-
-<style scoped>
-.loading, .error, .profile {
-  padding: 20px;
-}
-</style>

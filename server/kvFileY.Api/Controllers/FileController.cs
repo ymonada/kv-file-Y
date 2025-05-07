@@ -14,6 +14,8 @@ public class FileController : Controller
     {
         _fileYService = fileYService;
     }
+    private int GetUserId() => int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
+
     [Authorize]
     [HttpPost("/upload")]
     public async Task<IActionResult> UploadFilesAsync([FromForm] List<IFormFile> files,
@@ -49,12 +51,17 @@ public class FileController : Controller
         return res.IsSuccess ? Ok(res.Data) : BadRequest(res.Message);
     }
     [Authorize]
+    [HttpGet("file/count")]
+    public async Task<IActionResult> GetFilesCount(CancellationToken ct = default)
+    {
+        var res = await _fileYService.GetFilesCount(GetUserId(), ct);
+        return Ok(res.Data);
+    }
+    [Authorize]
     [HttpDelete("file/delete")]
     public async Task<IActionResult> DeleteAll()
     {
         var res = await _fileYService.DeleteFileAsync(GetUserId());
         return Ok();
     }
-
-    private int GetUserId() => int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0");
 }

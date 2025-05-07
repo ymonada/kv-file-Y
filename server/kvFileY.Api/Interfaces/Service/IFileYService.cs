@@ -5,7 +5,7 @@ using kvFileY.Domain.Entities;
 
 namespace kvFileY.Api.Interfaces.Service;
 
-public interface IFileYService 
+public interface IFileYService
 {
     Task<ServiceResult<FileY>> GetFileAsync(int fileId, CancellationToken ct = default);
 
@@ -16,7 +16,7 @@ public interface IFileYService
         string? sortBy = null,
         string? sortOrder = "asc",
         CancellationToken ct = default);
-    
+    Task<ServiceResult<long>> GetFilesCount(int userId, CancellationToken ct = default);
     Task<ServiceResult<List<FileY>>> LoadFileArrayAsync(int userId, List<IFormFile> files, CancellationToken ct = default);
     Task<ServiceResult<UserFileDto>> GetFileByUrl(string path, CancellationToken ct = default);
     Task<ServiceResult<FileY>> UpdateFileAsync(FileYUpdateDto fileUpdate, CancellationToken ct = default);

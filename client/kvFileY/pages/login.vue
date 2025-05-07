@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LoginDto } from "~/types/logindto";
-import { loginFetch } from "~/composables/service/authService";
+import {loginFetch } from "~/composables/service/authService";
 
 const router = useRouter();
 const data = ref<LoginDto>({ email: "", password: "" });
@@ -10,8 +10,6 @@ const isLoading = ref<boolean>(false);
 const handleSubmit = async (e: Event) => {
     e.preventDefault();
     errorMessage.value = "";
-
-    // Валідація
     if (!data.value.email || !data.value.password) {
         errorMessage.value = "Будь ласка, заповніть всі поля";
         return;
@@ -39,7 +37,9 @@ const handleSubmit = async (e: Event) => {
         isLoading.value = false;
     }
 };
+
 </script>
+
 
 <template>
     <div

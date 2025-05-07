@@ -11,12 +11,12 @@ const logout = async () => {
   }
 }
 
-const profile = () => {
-  navigateTo({ path: '/profile' })
+const profile = async () => {
+  await navigateTo({ path: '/profile' })
 }
 
-const files = () => {
-  navigateTo({ path: '/files' })
+const files = async () => {
+  await navigateTo({ path: '/files' })
 }
 
 </script>

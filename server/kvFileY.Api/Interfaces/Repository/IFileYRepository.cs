@@ -15,7 +15,7 @@ public interface IFileYRepository
         CancellationToken ct = default);
     Task<FileY?> GetByIdAsync(int id, CancellationToken ct = default);
     Task<FileY?> GetByStoredNameAsync(string storedName, CancellationToken ct = default);
-
+    Task<long> GetFilesCountAsync(int userId, CancellationToken ct = default);
     Task<List<FileY>> CreateRangeAsync(List<FileY> files, CancellationToken ct = default);
     // Перевірки
     Task<bool> ExistsAsync(int id, CancellationToken ct = default);

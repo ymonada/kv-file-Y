@@ -97,3 +97,22 @@ try {
   }
 }
 }
+export async function fetchFileCount():Promise<ApiResponse<number>>{
+  try{
+    const response = await $fetch<number>(getApiUrl(API_CONFIG.ENDPOINTS.FILES.COUNT), {
+      credentials: 'include',
+      mode: 'cors',
+    });
+    return {
+      data: response,
+      status: 200
+    }
+  }
+  catch (error:any){
+    return {
+      data: 0,
+      status: 500,
+      error: error.message || 'Not Files Found'
+    }
+  }
+}

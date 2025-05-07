@@ -62,7 +62,13 @@ public class FileYRepository : IFileYRepository
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken: ct);
     }
-
+    public async Task<long> GetFilesCountAsync(int userId, CancellationToken ct = default)
+    {
+        return await _context.Files
+        .AsNoTracking()
+        .Where(u => u.UserId == userId)
+        .LongCountAsync(ct);
+    }
     public async Task<FileY?> GetByStoredNameAsync(string storedName, CancellationToken ct = default)
     {
         return await _context.Files

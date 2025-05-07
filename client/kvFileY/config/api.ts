@@ -12,7 +12,8 @@ export const API_CONFIG = {
       BY_ID: '/filebyid/',
       BY_URL: '/filebyurl/',
       PAGE: '/file/page',
-      UPLOAD: '/upload'
+      UPLOAD: '/upload',
+      COUNT: '/file/count'
     },
     USER: {
       GET_USER: '/user'
